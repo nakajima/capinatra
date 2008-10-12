@@ -2,4 +2,21 @@
 
 Helpers for deploying Sinatra apps on Passenger.
 
+== Usage ==
+
+In your Sinatra app's project root, run:
+
+  $ capinatra
+
+This will generate a Capfile for you. After filling
+in the appropriate details, you can generate an apache
+virtual host by running:
+
+  $ cap capinatra:vhost
+
+Then it's the usual drill:
+
+  $ cap deploy:setup
+  $ cap deploy
+
 (c) Copyright 2008 Pat Nakajima. All Rights Reserved. 
