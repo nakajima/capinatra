@@ -1,2 +1,5 @@
 bin/capinatra
 lib/capinatra.rb
+templates/Capfile
+templates/config.ru.erb
+templates/vhost.conf.erb

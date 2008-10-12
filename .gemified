@@ -1,0 +1,6 @@
+--- 
+:summary: Quickly deploy Sinatra apps on Passenger
+:dependencies: 
+- capistrano
+:name: capinatra
+:version: 0.0.1

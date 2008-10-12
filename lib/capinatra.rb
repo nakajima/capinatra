@@ -7,7 +7,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     desc "Sets up apache vhost"
     task :vhost do
       logger.info 'compiling vhost template'
-      template = File.read(File.dirname(__FILE__), '..', 'templates', 'vhost.conf.erb')
+      template = File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'vhost.conf.erb'))
 
       logger.info 'uploading vhost file'
       put ERB.new(template).result(binding), "#{application}.conf"
@@ -22,7 +22,7 @@ Capistrano::Configuration.instance(:must_exist).load do
     desc "Adds config.ru file"
     task :config do
       logger.info 'compiling config.ru template'
-      template = File.read(File.dirname(__FILE__), '..', 'templates', 'config.ru.erb')
+      template = File.read(File.join(File.dirname(__FILE__), '..', 'templates', 'config.ru.erb'))
 
       logger.info 'uploading config.ru file'
       put ERB.new(template).result(binding), "config.ru"
