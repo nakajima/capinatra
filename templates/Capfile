@@ -1,5 +1,15 @@
 require 'capistrano/version'
+require 'rubygems'
+require 'capinatra'
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+
+# app settings
+set :app_file, "app.rb"
+set :application, "your-app-name"
+set :domain, "your-app-domain.com"
+role :app, domain
+role :web, domain
+role :db,  domain, :primary => true
 
 # general settings
 set :user, "deploy"
@@ -13,14 +23,6 @@ set :repository, "git@github.com:your-name/your-project"
 set :scm, "git"
 set :branch, "master"
 set :git_enable_submodules, 1
-
-# app settings
-set :app_file, "app.rb"
-set :application, "your-app-name"
-set :domain, "your-app-domain.com"
-role :app, domain
-role :web, domain
-role :db,  domain, :primary => true
 
 # where the apache vhost will be generated
 set :apache_vhost_dir, "/etc/apache2/sites-enabled/"
