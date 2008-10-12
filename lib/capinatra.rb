@@ -28,13 +28,7 @@ Capistrano::Configuration.instance(:must_exist).load do
       put ERB.new(template).result(binding), "config.ru"
 
       logger.info 'moving vhost file to ' + apache_vhost_dir
-      sudo "mv config.ru #{current_path}"
-    end
-  end
-  
-  namespace :deploy do
-    task :restart do
-      run "touch #{current_path}/tmp/restart.txt"
+      sudo "mv config.ru #{release_path}"
     end
   end
 end

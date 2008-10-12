@@ -24,3 +24,9 @@ role :db,  domain, :primary => true
 
 # where the apache vhost will be generated
 set :apache_vhost_dir, "/etc/apache2/sites-enabled/"
+
+namespace :deploy do
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
