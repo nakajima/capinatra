@@ -1,0 +1,5 @@
+= Capinatra =
+
+Helpers for deploying Sinatra apps on Passenger.
+
+(c) Copyright 2008 Pat Nakajima. All Rights Reserved. 

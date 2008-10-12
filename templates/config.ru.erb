@@ -1,0 +1,14 @@
+require 'rubygems'
+require 'sinatra'
+
+root = File.dirname(__FILE__)
+
+Sinatra::Application.default_options.merge! \
+  :run => false,
+  :root => root,
+  :app_file => File.join(root, '<%= app_file %>'),
+  :views => File.join(root, 'views')
+
+load File.join(File.dirname(__FILE__), '<%= app_file %>')
+
+run Sinatra.application

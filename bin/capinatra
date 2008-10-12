@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+FileUtils.cp File.join(File.dirname(__FILE__), '..', 'templates', 'Capfile'), File.join(Dir.pwd, 'Capfile')
