@@ -1,4 +1,7 @@
 require 'rubygems'
+<% if app_class # modern way of declaring Sinatra apps %>
+require 'sinatra/base'
+<% else # old way of declaring Sinatra apps %>
 require 'sinatra'
 
 root = File.dirname(__FILE__)
@@ -8,7 +11,10 @@ Sinatra::Application.default_options.merge! \
   :root => root,
   :app_file => File.join(root, '<%= app_file %>'),
   :views => File.join(root, 'views')
+<% end %>
 
 load File.join(File.dirname(__FILE__), '<%= app_file %>')
 
-run Sinatra.application
+<% if app_class %>
+run <%= app_class %>
+<% end %>

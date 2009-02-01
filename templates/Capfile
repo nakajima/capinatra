@@ -3,7 +3,13 @@ require 'rubygems'
 require 'capinatra'
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
-# app settings
+# set an app_class if you're using the more recent style of creating
+# Sinatra apps, where app_class would be the name of your subclass
+# of Sinatra::Base. if you're just requiring 'sinatra' and using the
+# more traditional DSL style of Sinatra, then comment this line out.
+set :app_class, 'YourApp'
+
+# standard settings
 set :app_file, "app.rb"
 set :application, "your-app-name"
 set :domain, "your-app-domain.com"
@@ -11,7 +17,7 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-# general settings
+# environment settings
 set :user, "deploy"
 set :group, "deploy"
 set :deploy_to, "/home/deploy/apps/#{application}"
